@@ -2,9 +2,14 @@ import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
 import { getMeal } from "@/lib/meals";
+import NotFound from "../not-found";
 
 export default function MealsDetailsPage({ params }) {
   const meal = getMeal(params.slug);
+
+  if (!meal) {
+    return NotFound();
+  }
 
   meal.instructions = meal.instructions.replace(/\n/g, "<br/>");
 

@@ -4,6 +4,19 @@ import Image from "next/image";
 import { getMeal } from "@/lib/meals";
 import NotFound from "../not-found";
 
+export async function generateMetadata({ params }) {
+  const meal = getMeal(params.slug);
+
+  if (!meal) {
+    return NotFound();
+  }
+
+  return {
+    title: meal.title,
+    description: meal.summary,
+  };
+}
+
 export default function MealsDetailsPage({ params }) {
   const meal = getMeal(params.slug);
 
@@ -17,7 +30,11 @@ export default function MealsDetailsPage({ params }) {
     <>
       <header className={styles.header}>
         <div className={styles.image}>
-          <Image src={meal.image} alt={meal.title} fill />
+          <Image
+            src={`https://katya-nextjs-demo-users-image.s3.amazonaws.com/${meal.image}`}
+            alt={meal.title}
+            fill
+          />
         </div>
         <div className={styles.headerText}>
           <h1>{meal.title}</h1>

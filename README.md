@@ -8,12 +8,11 @@ The application uses Firebase for storage and AWS SDK for image handling.
 - Frontend: Next.js, React
 - Backend: Firebase
 - Image Storage: AWS S3
-- Libraries:
-  > @aws-sdk/client-s3 for AWS S3 interaction
-  > firebase for Firebase integration
-  > slugify for generating URL-friendly slugs
-  > uuidv4 for generating unique identifiers
-  > xss for sanitizing user input
+- Libraries: @aws-sdk/client-s3 for AWS S3 interaction;
+  firebase for Firebase integration;
+  slugify for generating URL-friendly slugs;
+  uuidv4 for generating unique identifiers;
+  xss for sanitizing user input.
 
 ## Installation
 

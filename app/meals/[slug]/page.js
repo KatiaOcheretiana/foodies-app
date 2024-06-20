@@ -5,7 +5,7 @@ import { getMeal } from "@/lib/meals";
 import NotFound from "../not-found";
 
 export async function generateMetadata({ params }) {
-  const meal = getMeal(params.slug);
+  const meal = await getMeal(params.slug);
 
   if (!meal) {
     return NotFound();
@@ -17,8 +17,8 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function MealsDetailsPage({ params }) {
-  const meal = getMeal(params.slug);
+export default async function MealsDetailsPage({ params }) {
+  const meal = await getMeal(params.slug);
 
   if (!meal) {
     return NotFound();
